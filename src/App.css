@@ -1,28 +1,60 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.wrapper {
+  background-color: lawngreen;
+  padding: 10px 20px;
+  min-height: min-content;
+}
+
 /* section Div Table */
 .Row {
-    display: table;
-    width: 100%; /*Optional*/
-    border-spacing: 10px; /*Optional*/
-    /* table-layout: fixed; /*Optional*/
+  display: table;
+  width: 100%; /*Optional*/
+  /* border-spacing: 10px; /*Optional*/
+  /* table-layout: fixed; /*Optional*/
 }
 .Column {
-    display: table-cell;
+  display: table-cell;
 }
 /* end section Div Table */
 
 /* section Drawer */
 .Drawer {
+  display: block;
+  height: 100%;
+  width: 120px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
   background-color: aqua;
-  width: max-content;
   text-align: center;
-  padding: 10px;
+  padding-top: 30px;
 }
 
 .Drawer-item {
   padding: 10px 0px 10px 0px;
 }
 
-.Drawer-item:hover {
+.Drawer .closebtn {
+  position: absolute;
+  top: 0px;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.Drawer-item:hover,
+.closebtn:hover {
   background-color: brown;
   color: blue;
   cursor: pointer;
@@ -32,9 +64,6 @@
 /* section Content */
 .Content {
   background-color: chocolate;
-}
-
-h1 {
-  text-align: center;
+  margin: 0px 5%;
 }
 /* end section Content */

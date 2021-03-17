@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 function App() {
     const [selectedID, setSelectedID] = useState(0);
     const [item, setItem] = useState([]);
+    const [drawerShow, setDrawerShow] = useState(false);
     
     const titles = [
         {
@@ -38,8 +39,14 @@ function App() {
     }
 
     return (
-        <div className={"Row"}>
-            <div className={"Drawer Column"}>
+        <div className={"wrapper"}>
+            <div className={"Drawer"} style={{left: drawerShow ? 0 : -120}}>
+                <p
+                    className={"closebtn"}
+                    onClick={() => setDrawerShow(false)}
+                    >
+                    &times;
+                </p>
                 {
                     titles.map((obj) => (
                         <p
@@ -52,18 +59,26 @@ function App() {
                     ))
                 }
             </div>
-            <div className={"Content Column"}>
+            <p
+                className={"closebtn"}
+                onClick={() => setDrawerShow(true)}
+                style={{fontSize: 30}}
+                >
+                ☰
+            </p>
+            <div className={"Content"}>
                 {
-                    item.map(obj => (
-                        <div key="9">
+                    item.map((obj, i) => (
+                        <div key={i}>
                             <h1>{obj.value}</h1>
                             
                             <iframe
                                 title={obj.value}
-                                width="100%"
+                                width="80%"
                                 height="315"
                                 src={obj.ytLink}
                                 frameBorder="0"
+                                style={{margin: "auto", display: "block"}}
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowFullScreen
                                 >
