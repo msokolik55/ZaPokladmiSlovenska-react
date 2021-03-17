@@ -43,12 +43,6 @@ function App() {
 
     return (
         <div
-            //style={{
-            //    width: "100%",
-            //    display: "grid",
-            //    gridTemplateColumns: "repeat(2, 0fr)",
-            //    gridGap: 20,
-            //}}
             className={"Row"}
             >
             <div className={"Drawer Column"}>
@@ -72,8 +66,8 @@ function App() {
                     height="315"
                     src={ytLink}
                     frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
+                    allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    //allowfullscreen
                     >
                 </iframe>
                 <p>{description}</p>
