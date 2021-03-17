@@ -1,12 +1,10 @@
-//import logo from './logo.svg';
 import './App.css';
+import React from "react";
 import { useState, useEffect } from "react";
 
 function App() {
     const [selectedID, setSelectedID] = useState(0);
-    const [title, setTitle] = useState("");
-    const [ytLink, setYtLink] = useState("");
-    const [description, setDescription] = useState("");
+    const [item, setItem] = useState([]);
     
     const titles = [
         {
@@ -30,10 +28,8 @@ function App() {
     ]
 
     useEffect(() => {
-        let selected = titles.filter((obj) => obj.id === selectedID)[0];
-        setTitle(selected.value);
-        setYtLink(selected.ytLink);
-        setDescription(selected.description);
+        let selected = titles.filter((obj) => obj.id === selectedID);
+        setItem(selected);
         // eslint-disable-next-line
     }, [selectedID]);
 
@@ -42,9 +38,7 @@ function App() {
     }
 
     return (
-        <div
-            className={"Row"}
-            >
+        <div className={"Row"}>
             <div className={"Drawer Column"}>
                 {
                     titles.map((obj) => (
@@ -59,18 +53,26 @@ function App() {
                 }
             </div>
             <div className={"Content Column"}>
-                <h1>{title}</h1>
-                <iframe
-                    title={title}
-                    width="100%"
-                    height="315"
-                    src={ytLink}
-                    frameborder="0"
-                    allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    //allowfullscreen
-                    >
-                </iframe>
-                <p>{description}</p>
+                {
+                    item.map(obj => (
+                        <div key="9">
+                            <h1>{obj.value}</h1>
+                            
+                            <iframe
+                                title={obj.value}
+                                width="100%"
+                                height="315"
+                                src={obj.ytLink}
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                                >
+                            </iframe>
+                            
+                            <p>{obj.description}</p>
+                        </div>
+                    ))
+                }
             </div>
         </div>
     );
