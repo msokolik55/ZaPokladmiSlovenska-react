@@ -36,33 +36,6 @@ function App() {
 		];
 	}, []);
 
-	// const titles = [
-	// 	{
-	// 		id: 0,
-	// 		value: "1st title",
-	// 		ytLink: "https://www.youtube.com/embed/I_Xv360Ihl0",
-	// 		description: "Some data"
-	// 	},
-	// 	{
-	// 		id: 1,
-	// 		value: "2nd title",
-	// 		ytLink: "https://www.youtube.com/embed/m8R6LM4evDw",
-	// 		description: "Some data about 2nd"
-	// 	},
-	// 	{
-	// 		id: 2,
-	// 		value: "3rd title",
-	// 		ytLink: "https://www.youtube.com/embed/fyX82Nqg56I",
-	// 		description: "Some data from somewhere"
-	// 	},
-	// 	{
-	// 		id: 3,
-	// 		value: "Promo",
-	// 		ytLink: "https://www.youtube.com/embed/KnDQOdk_gIE",
-	// 		description: "Finally promo video"
-	// 	}
-	// ];
-
 	useEffect(() => {
 		let selected = titles.filter((obj) => obj.id === selectedID);
 		setItem(selected);
